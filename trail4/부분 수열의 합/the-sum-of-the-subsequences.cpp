@@ -19,7 +19,7 @@ int main() {
     //차례대로 고르는거임. 5개 중에서 몇개 골랐는데 12가 되는거 구하는거. 
     //5개 조합해서 12되는거 고르기. 
 
-    for(int i = 0; i<n;i++){
+    for(int i = 0; i<n;i++){ // 5 2 4 9 1 
         for(int j=m;j>=A[i];j--){
             if( dp[j-A[i]]==true) dp[j]=true;
         }

@@ -1,25 +1,34 @@
 #include <iostream>
-#include <vector>
+#include<vector>
 using namespace std;
 
 int K, N;
-vector<int> answer;
 
-void choose(int cnt) {
-    if (cnt == N) {
-        for (int v : answer) cout << v << " ";
-        cout << "\n";
+vector<int> answer;
+void choose(int cnt)
+{   
+    if(cnt==N){
+        for(int v : answer){
+            cout<<v<<" ";
+        }
+        cout<<"\n";
         return;
     }
-    for (int i = 1; i <= K; i++) {
-        answer.push_back(i);   // i를 고르고
-        choose(cnt + 1);       // 다음 자리 채우러 가고
-        answer.pop_back();     // 돌아오면 i를 빼서 다음 후보 시도
+
+    for(int i=1;i<=K;i++){
+        answer.push_back(i);
+        choose(cnt+1);
+        answer.pop_back();
     }
 }
 
 int main() {
-    cin >> K >> N;
+    cin >> K >> N; //K 까지의 정수중에서 중복 포함에서 N개 고르기
+
     choose(0);
+
+
+
+
     return 0;
 }
